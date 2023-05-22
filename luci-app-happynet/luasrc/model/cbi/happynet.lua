@@ -1,16 +1,16 @@
--- N2N VPN configuration page. Made by 981213
+-- HAPPYN VPN configuration page. Made by 981213
 
 local fs = require "nixio.fs"
 
-m = Map("n2n")
-m.title = translate("N2N VPN")
-m.description = translate("n2n is a layer-two peer-to-peer virtual private network (VPN) which allows users to exploit features typical of P2P applications at network instead of application level.")
+m = Map("happynet")
+m.title = translate("HAPPYN VPN")
+m.description = translate("happynet is a layer-two peer-to-peer virtual private network (VPN) which allows users to exploit features typical of P2P applications at network instead of application level.")
 
 -- Basic config
 -- edge
-m:section(SimpleSection).template  = "n2n/n2n_status"
+m:section(SimpleSection).template  = "happynet/happynet_status"
 
-s = m:section(TypedSection, "edge", translate("N2N Edge Settings"))
+s = m:section(TypedSection, "edge", translate("HAPPYN Edge Settings"))
 s.anonymous = true
 s.addremove = true
 
@@ -60,7 +60,7 @@ second_port = s:option(Value, "second_port", translate("Second Supernode Port"))
 second_port.datatype = "port"
 second_port.optional = false
 
-community = s:option(Value, "community", translate("N2N Community name"))
+community = s:option(Value, "community", translate("HAPPYN Community name"))
 community.optional = false
 
 s:option(Value, "key", translate("Encryption key"))
@@ -75,7 +75,7 @@ masquerade:depends("route", 1)
 masquerade.rmempty = false
 
 -- supernode
-s = m:section(TypedSection, "supernode", translate("N2N Supernode Settings"))
+s = m:section(TypedSection, "supernode", translate("HAPPYN Supernode Settings"))
 s.anonymous = true
 s.addremove = true
 
@@ -90,8 +90,8 @@ subnet = s:option(Value, "subnet", translate("DHCP Subnet"))
 subnet.optional = false
 
 -- Static route
-s = m:section(TypedSection, "route", translate("N2N routes"))
-s.description = translate("Static route for n2n interface")
+s = m:section(TypedSection, "route", translate("HAPPYN routes"))
+s.description = translate("Static route for happynet interface")
 s.anonymous = true
 s.addremove = true
 s.template = "cbi/tblsection"

@@ -14,8 +14,8 @@ msgstr ""
 msgid "happynet is a layer-two peer-to-peer virtual private network (VPN) based n2n which allows users to exploit features typical of P2P applications at network instead of application level."
 msgstr "happynet是建立在n2n基础上的第二层点对点VPN程序，它可以让用户在网络层而不是应用层使用一些点对点服务。"
 
-msgid "happynet Edge Settings"
-msgstr "happynet Edge节点设置"
+msgid "HAPPYN Edge Settings"
+msgstr "HAPPYN 客户端节点设置"
 
 msgid "TUN desvice name"
 msgstr "隧道设备名称"
@@ -38,8 +38,8 @@ msgstr "服务节点地址(示例:vip00.happyn.cc)"
 msgid "Second Supernode Host"
 msgstr "第二Supernode节点地址"
 
-msgid "happynet Community name"
-msgstr "happynet服务ID"
+msgid "HAPPYN Community name"
+msgstr "HAPPYN 服务ID"
 
 msgid "Enable packet forwarding"
 msgstr "启用数据包转发"
@@ -74,10 +74,10 @@ msgstr "运行中"
 msgid "NOT RUNNING"
 msgstr "未运行"
 
-msgid "N2N routes"
+msgid "HAPPYN routes"
 msgstr "路由表"
 
-msgid "Static route for n2n interface"
+msgid "Static route for happynet interface"
 msgstr "配置静态路由"
 
 msgid "IP"

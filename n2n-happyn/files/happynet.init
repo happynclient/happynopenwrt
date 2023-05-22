@@ -39,7 +39,7 @@ start_instance() {
 		[ "$mode" != 'dhcp' ] || address='0.0.0.0'
 
 		procd_open_instance "edge_$cfg"
-		procd_set_param command /usr/bin/n2n-edge -f
+		procd_set_param command /usr/bin/happynet -f
 		procd_append_param command -u 0 -g 0
 		procd_append_param command -d "$tunname"
 		procd_append_param command -a "$mode:$address"
@@ -57,9 +57,9 @@ start_instance() {
 		procd_set_param respawn
 		procd_close_instance
 
-		iptables -I FORWARD -i "$tunname" -j ACCEPT -m comment --comment 'n2n edge eth'
-		iptables -I FORWARD -o "$tunname" -j ACCEPT -m comment --comment 'n2n edge eth'
-		[ "$masquerade" = "0" ] || iptables -t nat -I POSTROUTING -o "$tunname" -j MASQUERADE -m comment --comment 'n2n edge net'
+		iptables -I FORWARD -i "$tunname" -j ACCEPT -m comment --comment 'happynet edge eth'
+		iptables -I FORWARD -o "$tunname" -j ACCEPT -m comment --comment 'happynet edge eth'
+		[ "$masquerade" = "0" ] || iptables -t nat -I POSTROUTING -o "$tunname" -j MASQUERADE -m comment --comment 'happynet edge net'
 	;;
 	supernode)
 		local enabled
@@ -71,7 +71,7 @@ start_instance() {
 		config_get subnet "$cfg" 'subnet'
 
 		procd_open_instance "supernode_$cfg"
-		procd_set_param command /usr/bin/n2n-supernode -f
+		procd_set_param command /usr/bin/happynet-supernode -f
 		procd_append_param command -p "$port"
 		procd_append_param command -a "$subnet"
 
@@ -82,7 +82,7 @@ start_instance() {
 		procd_set_param respawn
 		procd_close_instance
 
-		iptables -I INPUT -p udp --dport $port -j ACCEPT -m comment --comment 'n2n-happyn supernode port'
+		iptables -I INPUT -p udp --dport $port -j ACCEPT -m comment --comment 'happynet supernode port'
 	;;
 	route)
 		local enabled
@@ -105,34 +105,34 @@ stop_instance() {
 	config_get type "$cfg" TYPE
 
 	case "$type" in
-	edge)
+	happynet)
 		local tunname masquerade
 		config_get tunname "$cfg" 'tunname'
 		config_get_bool masquerade "$cfg" 'masquerade' '0'
 
-		iptables -D FORWARD -i "$tunname" -j ACCEPT -m comment --comment 'n2n-happyn edge eth' 2>/dev/null
-		iptables -D FORWARD -o "$tunname" -j ACCEPT -m comment --comment 'n2n-happyn edge eth' 2>/dev/null
-		iptables -t nat -D POSTROUTING -o "$tunname" -j MASQUERADE -m comment --comment 'n2n edge net' 2>"/dev/null"
+		iptables -D FORWARD -i "$tunname" -j ACCEPT -m comment --comment 'happynet eth' 2>/dev/null
+		iptables -D FORWARD -o "$tunname" -j ACCEPT -m comment --comment 'happynet eth' 2>/dev/null
+		iptables -t nat -D POSTROUTING -o "$tunname" -j MASQUERADE -m comment --comment 'happynet net' 2>"/dev/null"
 	;;
 	supernode)
 		local port
 		config_get port "$cfg" 'port'
 
-		iptables -D INPUT -p udp --dport "$port" -j ACCEPT -m comment --comment 'n2n-happyn supernode port' 2>"/dev/null"
+		iptables -D INPUT -p udp --dport "$port" -j ACCEPT -m comment --comment 'happynet supernode port' 2>"/dev/null"
 	;;
 	esac
 }
 
 start_service() {
-	config_load 'n2n'
-	config_foreach start_instance 'edge'
+	config_load 'happynet'
+	config_foreach start_instance 'happynet'
 	config_foreach start_instance 'supernode'
 	( sleep 2; config_foreach start_instance 'route'; ) &
 }
 
 stop_service() {
-	config_load 'n2n'
-	config_foreach stop_instance 'edge'
+	config_load 'happynet'
+	config_foreach stop_instance 'happynet'
 	config_foreach stop_instance 'supernode'
 }
 
@@ -142,5 +142,5 @@ reload_service() {
 }
 
 service_triggers() {
-	procd_add_reload_trigger "n2n"
+	procd_add_reload_trigger "happynet"
 }

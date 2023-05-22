@@ -1,4 +1,4 @@
--- N2N Luci configuration page. Made by 981213
+-- HAPPYNET Luci configuration page
 
 module("luci.controller.happynet", package.seeall)
 

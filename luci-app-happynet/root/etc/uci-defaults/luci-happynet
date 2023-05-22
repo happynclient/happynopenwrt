@@ -1,9 +1,9 @@
 #!/bin/sh
 
 uci -q batch <<-EOF >/dev/null
-	delete ucitrack.@n2n[-1]
-	add ucitrack n2n
-	set ucitrack.@n2n[-1].init=n2n
+	delete ucitrack.@happynet[-1]
+	add ucitrack happynet
+	set ucitrack.@happynet[-1].init=happynet
 	commit ucitrack
 EOF
 

@@ -17,7 +17,7 @@ msgstr "happynet是建立在n2n基础上的第二层点对点VPN程序，它可�
 msgid "HAPPYN Edge Settings"
 msgstr "HAPPYN 客户端节点设置"
 
-msgid "TUN desvice name"
+msgid "TUN device name"
 msgstr "隧道设备名称"
 
 msgid "Enable"

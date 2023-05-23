@@ -4,7 +4,7 @@ local fs = require "nixio.fs"
 
 m = Map("happynet")
 m.title = translate("HAPPYN VPN")
-m.description = translate("happynet is a layer-two peer-to-peer virtual private network (VPN) which allows users to exploit features typical of P2P applications at network instead of application level.")
+m.description = translate("happynet is a layer-two peer-to-peer virtual private network (VPN) based n2n which allows users to exploit features typical of P2P applications at network instead of application level.")
 
 -- Basic config
 -- edge
@@ -17,7 +17,7 @@ s.addremove = true
 switch = s:option(Flag, "enabled", translate("Enable"))
 switch.rmempty = false
 
-tunname = s:option(Value, "tunname", translate("TUN desvice name"))
+tunname = s:option(Value, "tunname", translate("TUN device name"))
 tunname.optional = false
 
 mode = s:option(ListValue, "mode", translate("Interface mode"))
@@ -90,11 +90,13 @@ subnet = s:option(Value, "subnet", translate("DHCP Subnet"))
 subnet.optional = false
 
 -- Static route
+--[[
 s = m:section(TypedSection, "route", translate("HAPPYN routes"))
 s.description = translate("Static route for happynet interface")
 s.anonymous = true
 s.addremove = true
 s.template = "cbi/tblsection"
+--]]
 
 ---- enable
 switch = s:option(Flag, "enabled", translate("Enable"))

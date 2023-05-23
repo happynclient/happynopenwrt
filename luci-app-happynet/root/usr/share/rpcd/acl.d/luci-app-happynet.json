@@ -1,0 +1,11 @@
+{
+	"luci-app-n2n": {
+		"description": "Grant UCI access for luci-app-happynet",
+		"read": {
+			"uci": [ "happynet" ]
+		},
+		"write": {
+			"uci": [ "happynet" ]
+		}
+	}
+}

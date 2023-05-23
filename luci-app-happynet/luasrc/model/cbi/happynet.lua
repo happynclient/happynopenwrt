@@ -96,11 +96,10 @@ s.description = translate("Static route for happynet interface")
 s.anonymous = true
 s.addremove = true
 s.template = "cbi/tblsection"
---]]
 
----- enable
 switch = s:option(Flag, "enabled", translate("Enable"))
 switch.rmempty = false
+--]]
 
 ---- IP address
 o = s:option(Value, "ip", translate("IP"))

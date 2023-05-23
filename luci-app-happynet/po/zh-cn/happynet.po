@@ -11,83 +11,124 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "happynet is a layer-two peer-to-peer virtual private network (VPN) based n2n which allows users to exploit features typical of P2P applications at network instead of application level."
-msgstr "happynet是建立在n2n基础上的第二层点对点VPN程序，它可以让用户在网络层而不是应用层使用一些点对点服务。"
+#: package/happyn/luci-app-happynet/luasrc/view/happynet/happynet_status.htm:18
+msgid "Collecting data..."
+msgstr "收集数据中..."
 
-msgid "HAPPYN Edge Settings"
-msgstr "HAPPYN 客户端节点设置"
-
-msgid "TUN device name"
-msgstr "隧道设备名称"
-
-msgid "Enable"
-msgstr "启用"
-
-msgid "Interface mode"
-msgstr "接口模式"
-
-msgid "Interface IP address"
-msgstr "接口IP地址"
-
-msgid "Interface netmask"
-msgstr "接口子网掩码"
-
-msgid "Supernode Host"
-msgstr "服务节点地址"
-
-msgid "Second Supernode Host"
-msgstr "第二服务节点地址"
-
-msgid "HAPPYN Community name"
-msgstr "HAPPYN 服务ID"
-
-msgid "Enable packet forwarding"
-msgstr "启用数据包转发"
-
-msgid "Enable IP masquerade"
-msgstr "IP动态伪装"
-
-msgid "Make packets from LAN to other edge nodes appear to be sent from the tunnel IP. This can make setting up your firewall easier"
-msgstr "使局域网发往其他边缘节点的数据包看起来像是从接口IP发出的。这也许能帮助你方便地设置防火墙"
-
-msgid "happynet Supernode Settings"
-msgstr "happynet 服务节点设置"
-
-msgid "Port"
-msgstr "本地端口"
-
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:89
 msgid "DHCP Subnet"
 msgstr "子网IP段"
 
-msgid "Supernode Port"
-msgstr "服务节点端口"
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:128
+msgid "Description"
+msgstr "描述"
 
-msgid "Second Supernode Port"
-msgstr "第二服务节点端口"
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:17
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:82
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:102
+msgid "Enable"
+msgstr "启用"
 
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:71
+msgid "Enable IP masquerade"
+msgstr "IP动态伪装"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:68
+msgid "Enable packet forwarding"
+msgstr "启用数据包转发"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:66
 msgid "Encryption key"
 msgstr "加密密钥"
 
-msgid "RUNNING"
-msgstr "运行中"
-
-msgid "NOT RUNNING"
-msgstr "未运行"
-
-msgid "HAPPYN routes"
-msgstr "路由表"
-
-msgid "Static route for happynet interface"
-msgstr "配置静态路由"
-
-msgid "IP"
-msgstr "IP"
-
-msgid "Mask"
-msgstr "掩码"
-
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:122
 msgid "Gateway"
 msgstr "网关"
 
-msgid "Description"
-msgstr "描述"
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:63
+msgid "HAPPYN Community name"
+msgstr "HAPPYN 服务ID"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:13
+msgid "HAPPYN Edge Settings"
+msgstr "HAPPYN 客户端节点设置"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:78
+msgid "HAPPYN Supernode Settings"
+msgstr "happyn 服务节点设置"
+
+#: package/happyn/luci-app-happynet/luasrc/controller/happynet.lua:11
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:6
+msgid "HAPPYN VPN"
+msgstr "HAPPYN VPN"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:106
+msgid "IP"
+msgstr "IP"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:27
+msgid "Interface IP address"
+msgstr "接口IP地址"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:23
+msgid "Interface mode"
+msgstr "接口模式"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:32
+msgid "Interface netmask"
+msgstr "接口子网掩码"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:41
+msgid "MTU"
+msgstr "MTU"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:72
+msgid ""
+"Make packets from LAN to other edge nodes appear to be sent from the tunnel "
+"IP. This can make setting up your firewall easier"
+msgstr ""
+"将局域网到其他客户端节点的报文伪装为虚拟网卡IP发送的"
+"这可以使设置防火墙更容易"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:112
+msgid "Mask"
+msgstr "子网掩码"
+
+#: package/happyn/luci-app-happynet/luasrc/view/happynet/happynet_status.htm:9
+msgid "NOT RUNNING"
+msgstr "停止"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:85
+msgid "Port"
+msgstr "端口"
+
+#: package/happyn/luci-app-happynet/luasrc/view/happynet/happynet_status.htm:7
+msgid "RUNNING"
+msgstr "运行"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:55
+msgid "Second Supernode Host"
+msgstr "第二服务节点地址"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:59
+msgid "Second Supernode Port"
+msgstr "第二服务节点端口"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:45
+msgid "Supernode Host"
+msgstr "服务节点地址"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:50
+msgid "Supernode Port"
+msgstr "服务节点端口"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:20
+msgid "TUN device name"
+msgstr "虚拟网卡名称"
+
+#: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:7
+msgid ""
+"happynet is a layer-two peer-to-peer virtual private network (VPN) based n2n "
+"which allows users to exploit features typical of P2P applications at "
+"network instead of application level."
+msgstr "happynet是建立在n2n基础上的第二层点对点VPN程序，它可以让用户在网络层而不是应用层使用一些点对点的网络服务。"

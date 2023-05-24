@@ -10,7 +10,7 @@ m.description = translate("happynet is a layer-two peer-to-peer virtual private 
 -- edge
 m:section(SimpleSection).template  = "happynet/happynet_status"
 
-s = m:section(TypedSection, "edge", translate("HAPPYN Edge Settings"))
+s = m:section(TypedSection, "happynet", translate("HAPPYN Edge Settings"))
 s.anonymous = true
 s.addremove = true
 
@@ -81,6 +81,7 @@ masquerade:depends("route", 1)
 masquerade.rmempty = false
 
 -- supernode
+--[[
 s = m:section(TypedSection, "supernode", translate("HAPPYN Supernode Settings"))
 s.anonymous = true
 s.addremove = true
@@ -94,6 +95,7 @@ port.optional = false
 
 subnet = s:option(Value, "subnet", translate("DHCP Subnet"))
 subnet.optional = false
+--]]
 
 -- Static route
 --[[

@@ -12,7 +12,7 @@ start_instance() {
 	config_get type "$cfg" TYPE
 
 	case "$type" in
-	edge)
+	happynet)
 		local enabled
 		config_get_bool enabled "$cfg" 'enabled' '0'
 		[ "$enabled" = "1" ] || return 1
@@ -40,7 +40,7 @@ start_instance() {
 		address="$ipaddr/$prefix"
 		[ "$mode" != 'dhcp' ] || address='0.0.0.0'
 
-		procd_open_instance "edge_$cfg"
+		procd_open_instance "happynet_$cfg"
 		procd_set_param command /usr/bin/happynet -f
 		procd_append_param command -u 0 -g 0
 		procd_append_param command -d "$tunname"

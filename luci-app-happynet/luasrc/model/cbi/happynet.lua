@@ -68,6 +68,12 @@ s:option(Value, "key", translate("Encryption key"))
 route = s:option(Flag, "route", translate("Enable packet forwarding"))
 route.rmempty = false
 
+route = s:option(Flag, "compress", translate("Enable data compress"))
+route.rmempty = true
+
+route = s:option(Flag, "select_rtt", translate("auto connect fast server"))
+route.rmempty = true
+
 masquerade = s:option(Flag, "masquerade", translate("Enable IP masquerade"))
 masquerade.description = translate("Make packets from LAN to other edge nodes appear to be sent from the tunnel IP. This can make setting up your firewall easier")
 masquerade.orientation = "horizontal"

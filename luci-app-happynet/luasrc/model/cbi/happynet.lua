@@ -110,12 +110,15 @@ switch.rmempty = false
 --]]
 
 ---- IP address
+--[[
 o = s:option(Value, "ip", translate("IP"))
 o.optional = false
 o.datatype = "ip4addr"
 o.rmempty = false
+--]]
 
 ---- IP mask
+--[[
 o = s:option(Value, "mask", translate("Mask"))
 o:value("8", "8 (255.0.0.0)")
 o:value("16", "16 (255.255.0.0)")
@@ -124,15 +127,20 @@ o:value("28", "28 (255.255.255.240)")
 o.optional = false
 o.datatype = "range(0,32)"
 o.default = "24"
+--]]
 
 ---- Gateway
+--[[
 o = s:option(Value, "gw", translate("Gateway"))
 o.optional = false
 o.datatype = "ip4addr"
 o.rmempty = false
+--]]
 
 ---- Description
+--[[
 o = s:option(Value, "desc", translate("Description"))
 o.optional = false
+--]]
 
 return m

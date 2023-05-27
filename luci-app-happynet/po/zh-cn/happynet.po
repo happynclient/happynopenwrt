@@ -107,19 +107,19 @@ msgid "RUNNING"
 msgstr "运行"
 
 #: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:55
-msgid "Second Supernode Host"
+msgid "Second Server Host"
 msgstr "第二服务节点地址"
 
 #: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:59
-msgid "Second Supernode Port"
+msgid "Second Server Port"
 msgstr "第二服务节点端口"
 
 #: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:45
-msgid "Supernode Host"
+msgid "Server Host"
 msgstr "服务节点地址"
 
 #: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:50
-msgid "Supernode Port"
+msgid "Server Port"
 msgstr "服务节点端口"
 
 #: package/happyn/luci-app-happynet/luasrc/model/cbi/happynet.lua:20

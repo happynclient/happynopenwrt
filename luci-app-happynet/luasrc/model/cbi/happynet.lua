@@ -42,21 +42,21 @@ mtu = s:option(Value, "mtu", translate("MTU"))
 mtu.datatype = "range(1,1500)"
 mtu.optional = false
 
-supernode = s:option(Value, "supernode", translate("Supernode Host"))
+supernode = s:option(Value, "supernode", translate("Server Host"))
 supernode.datatype = "host"
 supernode.optional = false
 supernode.rmempty = false
 
-port = s:option(Value, "port", translate("Supernode Port"))
+port = s:option(Value, "port", translate("Server Port"))
 port.datatype = "port"
 port.optional = false
 port.rmempty = false
 
-second_supernode = s:option(Value, "second_supernode", translate("Second Supernode Host"))
+second_supernode = s:option(Value, "second_supernode", translate("Second Server Host"))
 second_supernode.datatype = "host"
 second_supernode.optional = false
 
-second_port = s:option(Value, "second_port", translate("Second Supernode Port"))
+second_port = s:option(Value, "second_port", translate("Second Server Port"))
 second_port.datatype = "port"
 second_port.optional = false
 

@@ -54,12 +54,3 @@ jobs:
           name: ${{ matrix.arch}}-packages
           path: bin/packages/${{ matrix.arch }}
 
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1.5.0
-        with:
-          artifacts: "*-packages.zip"
-          release_name: happynet openwrt ${{ github.ref }} Release
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-              build by happyn.net

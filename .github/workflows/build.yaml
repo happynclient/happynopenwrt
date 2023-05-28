@@ -1,0 +1,65 @@
+name: Test Build
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: ${{ matrix.arch }} build
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        arch:
+          - x86_64
+          - i386_pentium4
+          - aarch64_generic
+          - aarch64_cortex-a72
+          - mipsel_24kc
+          - mips_24kc
+          - aarch64_cortex-a53
+          - arm_cortex-a9
+          - arm_cortex-a7_neon-vfpv4
+          - arm_cortex-a7
+          - arm_cortex-a9_vfpv3-d16
+          - arm_cortex-a5_vfpv4
+          - arm_cortex-a15_neon-vfpv4
+          - arm_xscale
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+            image: openwrt/sdk:${{ matrix.arch }}-22.03.0
+            options: -v ${{ github.workspace }}/bin:/builder/bin  -v ${{ github.workspace }}/n2n-happyn:/home/build/openwrt/package/n2n-happyn -v ${{ github.workspace }}/luci-app-happynet:/home/build/openwrt/package/luci-app-happynet
+            run: |
+                sudo apt update
+                sudo apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
+                ./scripts/feeds update -a
+                ./scripts/feeds install -a
+                make defconfig
+                find ./package/
+                make package/n2n-happyn/compile  V=s
+                make package/luci-app-happynet/compile  V=s
+                sudo cp -r bin/packages /builder/bin/
+
+      - name: Store packages
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.arch}}-packages
+          path: bin/packages/${{ matrix.arch }}
+
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.5.0
+        with:
+          artifacts: "*-packages.zip"
+          release_name: happynet openwrt ${{ github.ref }} Release
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+              build by happyn.net

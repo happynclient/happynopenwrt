@@ -30,3 +30,16 @@ make package/happyn/luci-app-happynet/compile V=s
 
 #ipk file to sdk/bin/packages/xx
 ```
+
+## install 
+
+1. Download ipk packages of your arch on [Release Page](https://github.com/happynclient/happynopenwrt/releases):
+2. Unzip packages, you need two ipk files:
+    * n2n-happyn_3.x.x.ipk 
+    * luci-app-happynet_xx.ipk 
+
+    Other ipks are Dependency packages Depending on how you lost lib packages;
+
+3. Upload `n2n-happyn_3.x.x.ipk` packages with your openwrt webui and install it;
+4. Upload `luci-app-happynet_xx.ipk` packages with your openwrt webui and install it;
+5. Do config from openwrt webui `VPN`->`HAPPYN VPN`
